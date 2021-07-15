@@ -10,53 +10,63 @@ Sulla base di queste informazioni dovrà calcolare il prezzo totale del viaggio,
 */
 
 
-/*  
-    ==================================
-        1.Dichiaro le variabili
-    ==================================
-*/
-
-var user_age;
-var km_trip;
-var cost_trip;
 
 /*  
-    ==================================
-        2.Popolo le variabili 
-    ==================================
+    =====================================
+        1. Ritorna un array con i dati dell'utente
+    ===================================
 
     uso parseInt per convertire l'input str in Int
     e typeof per debuggare il tipo di var
 */
+function userDataInput() {
+    var user_age = parseInt(prompt(`Inserisci la tua età:`));
+    var km_trip = parseInt(prompt(`Inserisci la distanza che devi percorrere in km`));
+    // Creo array
+    var data = [];
+    // Assegno valori
+    data["user_age"] = user_age;
+    data["km_trip"] = km_trip;
+    return data;
+}
 
-user_age = parseInt(prompt(`Inserisci la tua età:`));
-km_trip = parseInt(prompt(`Inserisci la distanza che devi percorrere in km`));
-
-// console.log(typeof(user_age));
 
 /*  
-    ==================================
-        3. Calcolo il prezzo in 
-        base alle condizioni
-    ==================================
+    ==============================================================
+        2. Funzione per calcolare il prezzo e l'eventuale sconto
+    ==============================================================
 */
+function calculatePrice(data) {
 
-if ( user_age < 18 ) {
-    
-    // Minorenni
-    cost_trip = (km_trip * 0.24) * 0.8;
+    if (data["user_age"] < 18) {
 
-} else if ( user_age > 65) {
+        // Minorenni
+        var cost_trip = (data["km_trip"] * 0.24) * 0.8;
 
-    // Over 65
-    cost_trip = (km_trip *0.24) * 0.6;
+    } else if (data["user_age"] > 65) {
 
-} else {
-    // Standard
-    cost_trip = (km_trip *0.24);
+        // Over 65
+        var cost_trip = (data["km_trip"] * 0.24) * 0.6;
+
+    } else {
+        // Standard
+        var cost_trip = (data["km_trip"] * 0.24);
+    }
+
+    return cost_trip;
 }
 
 /*  
+    ==============================================================
+        3. Funzione main - attiva all'onclick
+    ==============================================================
+*/
+
+function main() {
+    data = userDataInput();
+    var price = calculatePrice(data);
+    document.getElementById("price").innerHTML = "Prezzo:\u0009" + price.toFixed(2) + "€";
+    /*  
     ==================================
         4. Stampo il prezzo in 
            console
@@ -65,4 +75,5 @@ if ( user_age < 18 ) {
     uso il toFixed per arrodondare a due cifre decimali
 */
 
-console.log(cost_trip.toFixed(2));
+    console.log(price.toFixed(2));
+}
