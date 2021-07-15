@@ -44,17 +44,18 @@ km_trip = parseInt(prompt(`Inserisci la distanza che devi percorrere in km`));
 if ( user_age < 18 ) {
     
     // Minorenni
-    cost_trip = (km_trip * 0.24) * 0.8;
+    cost_trip = (km_trip * 0.21) * 0.8;
 
 } else if ( user_age > 65) {
 
     // Over 65
-    cost_trip = (km_trip *0.24) * 0.6;
+    cost_trip = (km_trip *0.21) * 0.6;
 
 } else {
     // Standard
-    cost_trip = (km_trip *0.24);
+    cost_trip = (km_trip *0.21);
 }
+
 
 /*  
     ==================================
