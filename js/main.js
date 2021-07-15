@@ -36,7 +36,7 @@ km_trip = parseInt(prompt(`Inserisci la distanza che devi percorrere in km`));
 
 /*  
     ==================================
-        2. Calcolo il prezzo in 
+        3. Calcolo il prezzo in 
         base alle condizioni
     ==================================
 */
@@ -58,7 +58,7 @@ if ( user_age < 18 ) {
 
 /*  
     ==================================
-        3. Stampo il prezzo in 
+        4. Stampo il prezzo in 
            console
     ==================================
 
