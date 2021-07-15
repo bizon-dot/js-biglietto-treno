@@ -12,9 +12,9 @@ Sulla base di queste informazioni dovrà calcolare il prezzo totale del viaggio,
 
 
 /*  
-    =====================================
+    ================================================
         1. Ritorna un array con i dati dell'utente
-    ===================================
+    ================================================
 
     uso parseInt per convertire l'input str in Int
     e typeof per debuggare il tipo di var
@@ -41,16 +41,16 @@ function calculatePrice(data) {
     if (data["user_age"] < 18) {
 
         // Minorenni
-        var cost_trip = (data["km_trip"] * 0.24) * 0.8;
+        var cost_trip = (data["km_trip"] * 0.21) * 0.8;
 
     } else if (data["user_age"] > 65) {
 
         // Over 65
-        var cost_trip = (data["km_trip"] * 0.24) * 0.6;
+        var cost_trip = (data["km_trip"] * 0.21) * 0.6;
 
     } else {
         // Standard
-        var cost_trip = (data["km_trip"] * 0.24);
+        var cost_trip = (data["km_trip"] * 0.21);
     }
 
     return cost_trip;
@@ -63,17 +63,20 @@ function calculatePrice(data) {
 */
 
 function main() {
+    // Racchiudo gli input in un array
     data = userDataInput();
+    // Calcolo il prezzo finale
     var price = calculatePrice(data);
-    document.getElementById("price").innerHTML = "Prezzo:\u0009" + price.toFixed(2) + "€";
+    
     /*  
-    ==================================
-        4. Stampo il prezzo in 
+    ========================================
+        Stampo il prezzo sia nell'h1 che in 
            console
-    ==================================
+    ========================================
 
     uso il toFixed per arrodondare a due cifre decimali
-*/
-
+  
+    */
+    document.getElementById("price").innerHTML = "Prezzo:\u0009" + price.toFixed(2) + "€";
     console.log(price.toFixed(2));
 }
