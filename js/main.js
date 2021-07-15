@@ -61,6 +61,8 @@ if ( user_age < 18 ) {
         3. Stampo il prezzo in 
            console
     ==================================
+
+    uso il toFixed per arrodondare a due cifre decimali
 */
 
-console.log(cost_trip);
+console.log(cost_trip.toFixed(2));
